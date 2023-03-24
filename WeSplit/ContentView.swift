@@ -26,7 +26,7 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Paylaşmak istediğiniz tutarı giriniz", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "TRY"))
+                    TextField("Paylaşmak istediğiniz tutarı giriniz", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
                     
@@ -51,6 +51,7 @@ struct ContentView: View {
                 
                 Section {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "TRY"))
+                        .foregroundColor(tipPercentage == 0 ? .red : .black)
                 }
             }
             .navigationTitle("WeSplit")
